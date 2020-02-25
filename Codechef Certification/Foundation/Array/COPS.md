@@ -1,35 +1,57 @@
-//https://www.codechef.com/problems/COPS
+# Problem
+There are 100 houses located on a **straight line**. The first house is numbered 1 and the last one is numbered 100. Some **M** houses out of these 100 are occupied by cops.
 
-#include<bits/stdc++.h>
-#define LL long long
-#define M 1000000007
-#define fastio ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-#define print(a, n) for(LL e=0; e<n; e++) cout<<a[e]; cout<<endl;
-#define read(a, n) for(LL e=0; e<n; e++) cin>>a[e];
-using namespace std;
+Thief Devu has just stolen PeePee's bag and is looking for a house to hide in.
 
-int main()
-{
-    fastio;
-    int t;
-    cin>>t;
-    while(t--){
-    	int x, y, m, i, ans=0, p=0;
-    	cin>>m>>x>>y;
-    	x = x*y;
-    	int a[m];
-    	read(a, m);
-    	sort(a, a+m);
-    	for(i=0; i<m; i++){
-    		if(a[i]-x>p)
-    			ans += (a[i]-x)-p-1;
-    		p = a[i]+x;
-    		if(p>100)
-    			break;
-    	}
-    	if(p<100)
-    		ans+=100-p;
-    	cout<<ans<<endl;
-    }
-    return 0;    
-}
+PeePee uses fast 4G Internet and sends the message to all the cops that a thief named Devu has just stolen her bag and ran into some house.
+
+Devu knows that the cops run at a maximum speed of **x** houses per minute in a straight line and they will search for a maximum of **y** minutes. Devu wants to know how many houses are safe for him to escape from the cops. Help him in getting this information.
+
+### Input
+First line contains **T**, the number of test cases to follow.
+
+First line of each test case contains 3 space separated integers: **M**, **x** and **y**.
+
+For each test case, the second line contains **M** space separated integers which represent the house numbers where the cops are residing.
+
+### Output
+For each test case, output a single line containing the number of houses which are safe to hide from cops.
+
+### Constraints
+* 1 ≤ **T** ≤ 104
+* 1 ≤ **x**, **y**, **M** ≤ 10
+
+### Example
+>Input:<br/>
+3<br/>
+4 7 8<br/>
+12 52 56 8<br/>
+2 10 2<br/>
+21 75<br/>
+2 5 8<br/>
+10 51<br/>
+
+>Output:<br/>
+0<br/>
+18<br/>
+9<br/>
+
+### Explanation
+**Example 1** : Cops in house 12 can cover houses 1 to 68, and cops in house 52 can cover the rest of the houses. So, there is no safe house.
+
+**Example 2** : Cops in house 21 can cover houses 1 to 41, and cops in house 75 can cover houses 55 to 95, leaving houses numbered 42 to 54, and 96 to 100 safe. So, in total 18 houses are safe.
+
+#### `<Problem link>` : <https://www.codechef.com/problems/COPS>
+<br/>
+<details>
+  <summary>Solution Approach</summary>
+  
+  ######
+  
+  The range of policemen can be given by **x * y**. We sort the houses in which cops are residing and then find the left and right range of houses that police can cover. The remaining number of houses are safe.
+  
+  ### References
+  
+  >https://discuss.codechef.com/t/cops-editorial/11264<br/>
+  
+</details>

@@ -13,13 +13,10 @@ The first line of the input file contains an integer **T**, the number of test c
 For each test case output exactly one line containing the string **Yes** if it possible to make all elephants happy and the string **No** otherwise. Output is case sensitive. So do not print **YES** or **yes**.
 
 ### Constraints
-1 ≤ T ≤ 1000
-
-1 ≤ N ≤ 100
-
-1 ≤ C ≤ 10<sup>9</sup>
-
-1 ≤ A<sub>K</sub> ≤ 10000, for K = 1, 2, ..., N
+* 1 ≤ T ≤ 1000
+* 1 ≤ N ≤ 100
+* 1 ≤ C ≤ 10<sup>9</sup>
+* 1 ≤ A<sub>K</sub> ≤ 10000, for K = 1, 2, ..., N
 
 ### Example
 >Input:<br/>
