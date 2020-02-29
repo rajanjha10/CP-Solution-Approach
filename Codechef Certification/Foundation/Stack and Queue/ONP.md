@@ -1,39 +1,34 @@
-//https://www.spoj.com/problems/ONP/
+# Problem
+Transform the algebraic expression with brackets into RPN form (Reverse Polish Notation). Two-argument operators: +, -, *, /, ^ (priority from the lowest to the highest), brackets ( ). Operands: only letters: a,b,...,z. Assume that there is only one RPN form (no expressions like a*b*c).
 
-#include<bits/stdc++.h>
-#define LL long long
-#define M 1000000007
-#define fastio ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-#define print(a, n) for(LL e=0; e<n; e++) cout<<a[e]<<" "; cout<<endl;
-#define read(a, n) for(LL e=0; e<n; e++) cin>>a[e];
-using namespace std;
+### Input
+t [the number of expressions <= **100**]
+expression [length <= **400**]
+[other expressions]
+Text grouped in [ ] does not appear in the input file.
 
-int main()
-{
-    fastio;
-    int t;
-    cin>>t;
-    while(t--){
-    	string s, ans="";
-    	cin>>s;
-    	stack<char> operators;
-    	for(int i=0; i<s.size(); i++){
-    		if(s[i]=='(')
-    			operators.push(s[i]);
-    		else if(s[i]==')'){
-    			while(operators.top()!='('){
-    				ans+=operators.top();
-    				operators.pop();
-    			}
-    			operators.pop();
-    		}
-    		else if(s[i]>='a' && s[i]<='z')
-    			ans+=s[i];
-    		else
-    			operators.push(s[i]);
-    	}
+### Output
+The expressions in RPN form, one per line.
 
-    	cout<<ans<<endl;
-    }
-    return 0;    
-}
+### Example
+>Input:<br/>
+3<br/>
+(a+(b*c))<br/>
+((a+b)*(z+x))<br/>
+((a+t)*((b+(a+c))^(c+d)))<br/>
+
+>Output:<br/>
+abc*+<br/>
+ab+zx+*<br/>
+at+bac++cd+^*<br/>
+
+#### `<Problem link>` : <https://www.spoj.com/problems/ONP/>
+<br/>
+<details>
+  <summary>Solution Approach</summary>
+  
+  ######
+  
+  All the operators enclosed within brackets appear after it in the output. So we use a stack to store all the operators including the opening brace `(`. The operands appear in the output in the same order as in the input. Once we encounter the closing brace `)`, we pop all the operands upto the nearest `(` and including the `(`. The obtained expression is the required ans.  
+  
+</details>
