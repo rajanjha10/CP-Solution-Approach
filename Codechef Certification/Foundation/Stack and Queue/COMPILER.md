@@ -1,70 +1,81 @@
-//https://www.codechef.com/problems/COMPILER
+# Problem
+Lira is now very keen on compiler development. :)
 
-#include<bits/stdc++.h>
-#define LL long long
-#define M 1000000007
-#define fastio ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-#define print(a, n) for(LL e=0; e<n; e++) cout<<a[e]<<" "; cout<<endl;
-#define read(a, n) for(LL e=0; e<n; e++) cin>>a[e];
-using namespace std;
+She knows that one of the most important components of a compiler, is its parser.
 
-int main()
-{
-    fastio;
-    int t;
-    cin>>t;
-    while(t--){
-        LL i, ans=0, cnt=0;
-        string s;
-        cin>>s;
-        for(int i=0; i<s.size(); i++){
-            if(s[i]=='<')
-                cnt++;
-            else{
-                cnt--;
-                if(cnt==0)
-                    ans = i+1;
-                else if(cnt<0)
-                    break;
-            }
-        }
+A parser is, in simple terms, a software component that processes text, and checks it's semantic correctness, or, if you prefer, if the text is properly built.
 
-        cout<<ans<<endl;
-    }
-    return 0;    
-}
+As an example, in declaring and initializing an integer, in C/C++, you can't do something like:
 
-//Using Stack
-int main()
-{
-    fastio;
-    int t;
-    cin>>t;
-    while(t--){
-    	LL i, ans=0, cntgt=0;
-    	string s;
-    	stack<char> tags;
-    	cin>>s;
-    	for(int i=0; i<s.size(); i++){
-    		if(s[i]=='>'){
-    			if(tags.empty())
-    				break;
-    			else{
-    				cntgt++;
-    				if(cntgt==tags.size()){
-    					while(!tags.empty()){
-    						tags.pop();
-    						ans+=2;
-    					}
-    					cntgt=0;
-    				}
-    			}
-    		}
-    		else
-    			tags.push(s[i]);
-    	}
+int = x ;4
 
-    	cout<<ans<<endl;
-    }
-    return 0;    
-}
+as the semantics of such statement is incorrect, as we all know that the datatype must precede an identifier and only afterwards should come the equal sign and the initialization value, so, the corrected statement should be:
+
+int x = 4;
+
+Today, Lira is concerned with an abstract instruction which is composed of the characters "<" and ">" , which she will use on the design of her language, L++ :D.
+
+She is using it as an abstraction for generating XML code Tags in an easier fashion and she understood that, for an expression to be valid, a "<" symbol must always have a corresponding ">" character somewhere (not necessary immediately) after it. Moreover, each ">" symbol should correspond to exactly one "<" symbol.
+
+So, for instance, the instructions:
+
+**<<>>**
+
+**<>**
+
+**<><>**
+
+are all valid. While:
+
+**>>**
+
+**><><**
+
+are not.
+
+Given some expressions which represent some instructions to be analyzed by Lira's compiler, you should tell the length of the longest prefix of each of these expressions that is valid, or **0** if there's no such a prefix.
+
+### Input
+Input will consist of an integer **T** denoting the number of test cases to follow.
+
+Then, **T** strings follow, each on a single line, representing a possible expression in L++.
+
+### Output
+For each expression you should output the length of the longest prefix that is valid or **0** if there's no such a prefix.
+
+### Constraints
+* **1 ≤ T ≤ 500**
+* **1 ≤ The length of a single expression ≤ 10<sup>6</sup>**
+* The total size all the input expressions is no more than **5*10<sup>6</sup>**
+
+### Example
+>Input:<br/>
+3<br/>
+<<>><br/>
+><<br/>
+<>>><br/>
+
+>Output:<br/>
+4<br/>
+0<br/>
+2<br/>
+
+#### `<Problem link>` : <https://www.codechef.com/problems/COMPILER>
+<br/>
+<details>
+  <summary>Solution Approach</summary>
+  
+  ######
+  
+  All the `<` that meet a `>` from the start will fall under the longest regular prefix length.
+  A output for string such as `<<<>>` is 0 as the first `<` is alone.
+  
+  We can use a stack to store `<`.
+  While processing the input when we encounter `>` we update cntgt. When cntgt is equal to stack size we pop all the elements from the stack and increment ans by 2 as well as reset cntgt.
+  If stack is empty and input is `>` then we can stop processing the string.
+  
+  ### References
+  
+  >https://discuss.codechef.com/t/compiler-editorial/5377 (Refer for solution without stack)<br/>
+  
+</details>
