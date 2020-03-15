@@ -44,8 +44,8 @@ Method signature: int refactor(int n)<br/>
       int count(int n) {
           int result = 0;
           for (int a = 2; a*a <= n; a++) 
-          if (n % a == 0) 
-              result += count(n/a) + 1;
+              if (n % a == 0) 
+                  result += count(n/a) + 1;
           return result;
       } 
   ```
@@ -55,8 +55,8 @@ Method signature: int refactor(int n)<br/>
     int count(int n, int lastFactor) {
         int result = 0;
         for (int a = lastFactor; a*a <= n; a++) 
-        if (n % a == 0) 
-            result += count(n/a, a) + 1;
+            if(n % a == 0) 
+                result += count(n/a, a) + 1;
         return result;
     } 
   ```
