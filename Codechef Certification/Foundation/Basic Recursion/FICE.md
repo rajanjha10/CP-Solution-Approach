@@ -5,9 +5,10 @@ There is a kingdom in land of fire and ice known as westros. The kingdom is rule
 One territory known as ice because it is always snowing and other Fire beacuse of volcano near by area. There is rebellion to overthrow the mad king to bring peace to Westros.
 There is a secret attack on red fort by rebellion force lead by Luke Skywalker. There is snitch in rebellion force. He trades the secret attack plan to mad king.
 However mad king has superpower to sense disturbance in the force. He sends out his best knights to scout the rebellion force. He got to know that rebel force outmatch city guards
-one to hundred. Moreover he came to know that Luke is last jedi who can detroy him.In order to win this battle against rebels, the mad king decided to use N common folks as soldiers.
-He select a bunch of people from a territory and train them .Now king can only select odd number of people from land of fire and from land of ice in one go.
-He cannot select bunch of people consecutively from either territory.In how may ways the mad king could assemble his army to battle against rebel forces ?
+one to hundred. Moreover he came to know that Luke is last jedi who can detroy him. In order to win this battle against rebels, the mad king decided to use N common folks as soldiers.
+He select a bunch of people from a territory and train them. Now king can only select odd number of people from land of fire and from land of ice in one go.
+He cannot select bunch of people consecutively from either territory. In how may ways the mad king could assemble his army to battle against rebel forces?
+
 Note: The number of people in each territory is infinte
 
 ### Input
@@ -66,7 +67,7 @@ In first test case the number of ways to assemble his army are:
   
   We will use recursion and for each n we will find out answer for all `n-i` where i is odd and less than n.
   In each iteration we select i no of soldiers and reduce the problem to a size of n-i. 
-  So the recursion is given by `F[n] = .... + F[n-i] + F[n-(i+2)] + F[n-(i+5)] + ..... `
+  So the recursion is given by `F[n] = .... + F[n-i] + F[n-(i+2)] + F[n-(i+4)] + ..... `
   
   This turns out to be the same as nth fibonacci number. Using only recursion will result in TLE. We use memoization to store the results by making a table memo. For all n, we solve for `n-i` when i=1 i.e `n-1`. Hence, We can find the answers for all n's when we solve for an upperbound.
   

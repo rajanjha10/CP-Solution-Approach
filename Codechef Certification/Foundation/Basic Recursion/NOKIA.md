@@ -47,7 +47,7 @@ In the 4th case, for the permutation {1, 2, 3, 4, 5} we need the maximum length 
   
   ######
   
-  The problem is less recursion and more concept. Since **N** is less we can do simple brute force and the solution should pass(**Hopefully**). If you want the brute force implementation or if you have implemented it using brute force then comment down below.
+  The problem is less recursion and more concept. Since **N** is less we can do simple brute force and the solution should pass (**Hopefully**). If you want the brute force implementation or if you have implemented it using brute force then comment down below.
   
   While solving the question on paper you will Identify that we can get any value in between the maximum and minimum value of sum by just using another permutation.
   
@@ -59,7 +59,7 @@ In the 4th case, for the permutation {1, 2, 3, 4, 5} we need the maximum length 
   |  3 |  9 |  8 | 9  |   |
   |  4 | 14  | 12  | 12  | 14  |
 
-  For ex: we can get sum 13 when **N**=4 (which is not in the table) by using P={4, 2, 3, 1}.
+  For ex: we can get sum 13 (which is not in the table) when **N**=4 by using P={4, 2, 3, 1}.
   
   Consider:
   - case 1 : if n==1, 
@@ -69,7 +69,7 @@ In the 4th case, for the permutation {1, 2, 3, 4, 5} we need the maximum length 
   - case 3 : if n==3, 
     max(3) = 9; min(3) = 8;
 
-  So for **N**>3 if we go for solution then after dividing the problem we will surely reach some level where we have to solve for **N**=3 and then we will be able to create the difference of 1 (if all other branches are remained constant). Hence we can get all the numbers in [min(n),max(n)].
+  So for **N**>3, if we go for recursion then after dividing the problem we will surely reach some level where we have to solve for **N**=3 and then we will be able to create the difference of 1 (if all other branches are remained constant). Hence we can get all the numbers in [min(n),max(n)].
   
   Hence we need to find out the smallest and the largest value of sum and then we can deduce our answer accordingly.
   
@@ -87,15 +87,15 @@ In the 4th case, for the permutation {1, 2, 3, 4, 5} we need the maximum length 
     int make_table(int n){
       int res=0;
       for(int i=1; i<=n; i++){
-        res = cal(i-1) + cal(n-i) + n+1;
-        table[n][i] = res;
+          res = cal(i-1) + cal(n-i) + n+1;
+          table[n][i] = res;
       }
       return res;
     }
   ```
   
-  If you focus, you can notice that if we want to get the lowest value of the range, we have to divide the sub-problem into smallest possible parts (evenly). In one step having n spots,we can divide it into two sub-problems of ceil(n/2) spots.
-  Example: for n = 3, 2 1 3 or 3 1 2 is a possible permutation for getting the minimum sum. We will get the minimum sum when we place soldiers at `n/2` in each subproblem.
+  If you focus, you can notice that if we want to get the lowest value of the range, we have to divide the sub-problem into smallest possible parts (evenly). In one step having n spots, we can divide it into two sub-problems of ceil(n/2) spots.
+  Example: for n = 3, `2 1 3` or `3 1 2` is a possible permutation for getting the minimum sum. We will get the minimum sum when we place soldiers at `n/2` in each subproblem.
   
   We will get the highest value of range when the permutation is sorted i.e P={1, 2, 3, ...., **N**}. So we can get maximum sum when we divide the problem into `n-1` subproblem and add `n+1` for the i<sup>th</sup> problem.
   
