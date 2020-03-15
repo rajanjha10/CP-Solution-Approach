@@ -39,7 +39,7 @@ Method signature: int refactor(int n)<br/>
   
   ######
   
-  We are going to use recursion. Specifically, if n = a * m, then a * m is a factorization of n, as is a multiplied by any factorization of m. Indeed, we can find all factorizations of n by iterating over all of its divisors a, and then recursively finding all factorizations of n/a. See Following pseudocode:
+  We are going to use recursion. Specifically, if n = a * m, then a * m is a factorization of n, as is **a** multiplied by any factorization of m. Indeed, we can find all factorizations of n by iterating over all of its divisors a, and then recursively finding all factorizations of n/a. See Following pseudocode:
   ```cpp
       int count(int n) {
           int result = 0;
