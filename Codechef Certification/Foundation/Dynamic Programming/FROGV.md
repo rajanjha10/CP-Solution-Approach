@@ -47,7 +47,11 @@ For pair **(2, 5)** frogs can't send a message under current constraints.
   
   ######
   
-   
+  We will use the idea similar to connected component. We will use an array dp[]. The frogs which are in range of one another are deemed to be connected and have the same value in dp[].
+  
+  We sort the input along with corresponding indices in decreasing order of **X** coordinate so that we can start with the farthest frog and close in towards (0, 0) co-ordinate. Hence for each frog at **i** we will get the maximum range it can cover with the help of it's subordinates satisfying the requirement of a maximum gap of **k**. If the requirement is satisfied then `dp[j] = dp[j-1]` indicating same connected component else `dp[j] = dp[j-1] + 1` indicating different connected component where j is index of **X** coordinate in array.
+  
+  If the values in dp[] for two frogs are same then they can communicate and the answer is **Yes** else the answer is **No**.
   
   ### References
   

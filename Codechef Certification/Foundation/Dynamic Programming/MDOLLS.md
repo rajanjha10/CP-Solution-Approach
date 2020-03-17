@@ -47,10 +47,16 @@ number of nested dolls possible.
   
   ######
   
-   
+  Read Dilworth's theorem for better understanding
+  
+  Read Reference post for solution approach, I can't explain better than that.
+  
+  I have used DP to compute LIS meeting the constraints of the problem in `O(n^2)` and it will give a TLE verdict on spoj. **The solution is intended for understanding the dp approach to the problem**.
+  
+  The reference post however discusses the O(nlogn) approach.
   
   ### References
   
-  ><br/>
+  >https://journeywithdp.blogspot.com/2018/06/spoj-mdolls-nested-dolls.html :star:<br/>
   
 </details>

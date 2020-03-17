@@ -45,7 +45,9 @@ For each test case, output one line with **N** space-separated integers - the le
   
   ######
   
-   
+  Simplest of DP. We can divide the problem into subproblems from n to n-1, n-2, ..., 0. The base case is 1 for every x ending at itself. We use an array DP[] for best Solution from N....x.
+  
+  We check if current element at `i` is less than zero and element at `i+1` is greater than zero or vice versa. If true then `dp[i] = dp[i+1] + 1`. Print DP[].  
   
   ### References
   

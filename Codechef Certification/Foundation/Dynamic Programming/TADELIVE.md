@@ -47,7 +47,14 @@ Bob will take the first three orders (or the first two) and Andy will take the r
   
   ######
   
-   
+  **The solution cannot handle large values of n and is intended to explain dp approach to the problem**
+  
+  ###### Top Down
+  We will use include exclude recursion with dp. We will use matrix dp[][] to account for orders taken by andy upto index i where i = 0...n. Let's say we are at index **i** with **j** orders taken by andy. When we assign an order to andy we add a[i] value to the answer and recur for next `i+1` index with `j+1` orders taken by andy. Else we add b[i] value to the answer and recur for next `i+1` index with `j` orders taken by andy. We store the better results out of the two in our dp[][].
+  
+  ###### Bottom Up
+  We use the similar approach and iterate for all possible orders upto x for andy at every i where i = 0...n. If we can include jth order at index i for andy than andy = `dp[i-1][j-1] + a[i]` which is what is the best we can do at the previous index with one order less + tip of order at current index for andy. If we can include jth order at index i for bob than bob = `dp[i-1][j] + b[i]` which is what is the best we can do at the previous index without any change in orders of andy + tip of order at current index for bob. dp[i][j] is the max of andy and bob.<br/>
+  The best answer will be stored in dp[n][i] (1 based indexing) where i = 0....x
   
   ### References
   

@@ -44,7 +44,14 @@ For each testcase, print the number of possible options where mirror can be plac
   
   ######
   
-   
+  We will use two matrix to account for blockages:
+  - row matrix to account for blockage from east side
+  - column matrix to account for blockage from south side
+  
+  For row matrix, we traverse top down right to left and put **0** if there is a blockage either by itself or by it's neighbour in east
+  For row matrix, we traverse bottom up left to right and put **0** if there is a blockage either by itself or by it's neighbour in south
+  
+  If `row[i][j]==1 and col[i][j]==1` for any **i**, **j** (i, j = 0..n) then we can place the mirror there. Hence we increment our answer.
   
   ### References
   

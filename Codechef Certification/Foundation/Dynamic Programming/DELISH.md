@@ -50,10 +50,19 @@ The delish value hence obtained is **| ( ( −1 ) + ( −1 ) ) − ( 1 + 1 ) | =
   
   ######
   
-   
+  Let us say we have picked i, j, k, l, with k-j > 1. Now, consider sum S = D[j+1] + D[j+2] + … + D[k-1]. If S >= 0, then it can be added to the larger of the two segments [i…j], [k…l]. If S <= 0, then the segment can be added to the smaller of the two segments [i…j], [k…l]. In both cases, it gives us a Delish value atleast as good as the Optimal. Hence, the two segments we choose are consecutive.
+  
+  What is the best we can do in terms of sum upto `i` from prefix minus what is the best we can do upto in terms of sum upto `i+1` from suffix will give us the best possible answer. Since we are considering absolute values we will use 4 arrays:
+  - Maximum Sum Contiguous Subarray for prefix
+  - Minimum Sum Contiguous Subarray for prefix
+  - Maximum Sum Contiguous Subarray for suffix
+  - Minimum Sum Contiguous Subarray for suffix
+  
+  We will have the best min and max for prefix and suffix at each i in the array. To maximize the delish value we will try to create the maximum possible difference between both the values. Hence we will choose the max(absolute value of (maximum of prefix at each i - minimum of suffix at each i+1) or max(absolute value of (minimum of prefix at each i - maximum of suffix at each i+1) where i = 0..n-1
   
   ### References
   
   >http://discuss.codechef.com/problems/DELISH<br/>
+  >https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
   
 </details>

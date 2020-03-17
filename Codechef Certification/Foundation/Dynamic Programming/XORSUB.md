@@ -43,7 +43,15 @@ Therefore, the answer is 7.<br/>
   
   ######
   
-   
+  Since the maximum value of **A<sub>i</sub>** is 1000 and we will get maximum xor when all bits are set the maximum value of the xor can be 1023.
+  
+  ###### Top Down
+  We will use the include exclude recursion along with dp to account for the xor we have already seen. We can start with the first element by including or excluding it in our current xor and then again recurse on the `n-1` subproblem. We will use a 2D array `dp[][]` to mark the index and current xor pair in order to prevent resolving of the same subproblem
+  
+  ###### Bottom Up
+  We can reduce the state space by solving bottom up. We will use array dp[] to account for the xor's which are possible. dp[0] is always possible for an empty set. If **j** (0...1024) exists then `j^a[i]` will also exist for all i = 0..n-1. We will find out all the xor's possible.
+  
+  We will find the maximum value of `i xor k` for all i's that are possible and print the answer.
   
   ### References
   

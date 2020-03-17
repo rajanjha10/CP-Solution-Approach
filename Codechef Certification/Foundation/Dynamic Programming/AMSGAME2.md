@@ -81,7 +81,11 @@ For each test case, **output a single integer** - the number of **sub-sequences*
   
   ######
   
-   
+  Since **N** is only 60, we can use the include exclude recursion with dp to find the answer. The game will terminate at 1 if and only if the gcd of numbers in the subsequence is **1** i.e they are co-prime to each other (proof: Read definition of GCD).
+  
+  We will recur for all the sub-sequences considering a[i] as the currGcd where (i = 0..n). The base case is when `i==n` then if the `currGcd==1` then we return **1** else **0**. For including the current number we take the gcd of currGcd with a[i] and for excluding the current number we just use the same currGcd and recurr for `n-1` subproblems.
+  
+  To prevent re-computation we use a 2d array dp[][] to keep track of indices that have been visited with a particular currGcd.
   
   ### References
   

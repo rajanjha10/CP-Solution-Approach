@@ -32,8 +32,43 @@ Subtask 5 (28 points): 1 <= **N,M** <= 2000.<br/>
   
   ######
   
-   
+  Concentrate.
   
+  Let's call the square submatrix having all one's above and on diagonal be a good matrix.
+  
+  We will use a 2D array dp[][] which will store the maximum number of good matrices we can get if we consider (i, j) as the top left corner of the good matrix. The base case is `dp[i][j] = a[i][j]`. If a[i][j] is **1** then we can get a good matrix of atleast size **1** or else **0**. Since we are focusing on the part of matrix above and on the diagonal we will process the input matrix from bottom to top, right to left to make sure we have processed the values of the matrix before reaching it's top left corner. 
+  
+  If `a[i][j]==1` then for each (i, j) where (i = n-2...0), (j = m-2...0) if it's neighbouring matrix is not a good matrix then dp[i][j+1] will be **0** or If the matrix following the diagonal is not a good matrix then dp[i+1][j+1] will be **0**. In any of the cases our matrix at (i, j) is also not a good matrix.
+  
+  Hence `dp[i][j] = min(dp[i][j+1], dp[i+1][j+1]) + 1` if a[i][j]==1. We add all the values of dp[i][j] to get the total good submatrices.
+  
+  Simulation:<br/>
+  Input 1: 
+  |  i/j | 1  | 2  | 3  |
+  | ------------ | ------------ | ------------ | ------------ |
+  | 1  | 1  | 1  | 1  |
+  | 2 | 1  | 1  | 1  |
+  | 3  | 1  | 1  | 1  |
+  
+  Output 1:
+  |  i/j | 1  | 2  | 3  |
+  | ------------ | ------------ | ------------ | ------------ |
+  | 1  | 3  | 2  | 1  |
+  | 2 | 2  | 2  | 1  |
+  | 3  | 1  | 1  | 1  |
+  
+  Input 2:
+  |  i/j | 1  | 2  | 3  |
+  | ------------ | ------------ | ------------ | ------------ |
+  | 1  | 0  | 1  | 1  |
+  |  2 | 1  | 1  | 1  |
+  
+  Output 2:
+  |  i/j | 1  | 2  | 3  |
+  | ------------ | ------------ | ------------ | ------------ |
+  | 1  | 0  | 2  | 1  |
+  |  2 | 1  | 1  | 1  |
+
   ### References
   
   >http://discuss.codechef.com/problems/MATRIX2<br/>
