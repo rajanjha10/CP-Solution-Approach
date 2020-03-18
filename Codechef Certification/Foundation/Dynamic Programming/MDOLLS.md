@@ -51,6 +51,11 @@ number of nested dolls possible.
   
   Read Reference post for solution approach, I can't explain better than that.
   
+  I will just re-explain why do we need to take height in increasing order when weights are equal.
+  Suppose you have 2 boxes of dimensions(w, h) = (5, 5) and (5, 2). Suppose a new box of (5, 1) comes in and you have to decide in which box will you nest it. The obvious choice is to nest it in (5, 2) (the closest height one) so that we can waste the minimum space and utilize box (5, 5) for future boxes.
+
+  When we take LIS on heights of boxes we make sure that we are waisting minimum space while chaining. The elements of LIS will be present in different chains and will give minimum chains required to cover finite partially ordered set (Sorted dimensions of dolls in this case).
+
   I have used DP to compute LIS meeting the constraints of the problem in `O(n^2)` and it will give a TLE verdict on spoj. **The solution is intended for understanding the dp approach to the problem**.
   
   The reference post however discusses the O(nlogn) approach.

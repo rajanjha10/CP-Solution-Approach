@@ -51,7 +51,7 @@ In total, the delivery boy must fill the tank 7 times. There is no way to fill t
   
   ######
   
-  The sum is a variation of Minimum coin change problem. How many coins do we need to make a change. Similary how many times do we need to fill the tank in order to gain exactly x litres of fuel.
+  This problem is a variation of Minimum coin change problem. How many coins do we need to make a change. Similary how many times do we need to fill the tank in order to gain exactly x litres of fuel.
   
   We double all the values in h[] to account for return journey and find the maximum fuel required. We use dp[] to store the best result. We Iterate through all the values upto m and for each value of i less than equal to m we check all values of a[j] (j = 0..n) and if `i+a[j]` is less than equal to m then we assign it the minimum value between it's current value and dp[j]+1;
   

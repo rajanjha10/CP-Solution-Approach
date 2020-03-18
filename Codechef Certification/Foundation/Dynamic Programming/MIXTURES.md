@@ -43,10 +43,25 @@ The first scenario is a much better way to proceed.
   
   ######
   
-   
+  In short the problem is a variation of matrix chain multiplication. We need to find the minimum cost of multiplying in any order while considering any two adjacent elements. The only catch is to fix the color.
+  
+  If we mix mixtures i…j into a single mixture, irrespective of the steps taken to achieve this, the final colour of the mixture is the same, equal to cumulative sum(i,j) = sum(colour(i…j)) mod 100.
+  
+  We use a 2d array dp[][] array to store the least amount of smoke produced while converting the mixtures from i…j into a single mixture. For achieving mixture of range i...j we try all combination of two mixtures which are resultants of ranges i…k and k+1…j where i≤k<j. Thus we can obtain the recurrence:
+
+  `dp[i][j] = min(dp[i][k] + dp[k+1][j] + sum(i,k) * sum(k+1,j)).` where (k = i ≤ k < j)
+
+  ###### Top Down
+  
+  The base case is when i==j. we don't have to combine any mixture and hence smoke produced is 0. We recur for all values of k and store the best in dp[i][j] where i≤k<j.
+  
+  ###### Bottom Up
+  
+  We build the dp table diagonally and the final answer is stored in dp[0][n-1]. The base case is `dp[i][j]=0` For each (i, j) we store the best corresponding color sum in sum[i][j].
   
   ### References
   
-  ><br/>
+  >https://www.youtube.com/watch?v=XHjjIJxnAJY <br/>
+  >https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/ <br/>
   
 </details>

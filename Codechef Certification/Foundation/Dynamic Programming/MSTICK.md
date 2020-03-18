@@ -50,10 +50,14 @@ The output should contain the minimum setup time in minutes, one per line.
   
   ######
   
-   
+  This problem is similar to [MDOLLS](https://rajanjha.codes/code.html?1056) problem. Read the solution approach to it and then come back.
+  
+  We sort the lengths in decreasing order. The difference is in this problem when length is equal we sort the weights too in decreasing order to maintain the constraint of `l < l'` and  `w < w'` when taking LIS. 
+  
+  If we have (3, 3), (3, 2), and (3, 1) then sorting in this order will give LIS on weights of **1** which is indeed the time required. 
   
   ### References
   
-  ><br/>
+  >https://rajanjha.codes/code.html?1056<br/>
   
 </details>

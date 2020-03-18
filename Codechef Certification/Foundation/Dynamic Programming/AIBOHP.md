@@ -34,10 +34,12 @@ fft<br/>
   
   ######
   
-   
+  The problem requires knowledge of Longest common subsequence (LCS) as the prerequisite. Without too much jargon, the answer is `size - LCS[s, reverse(s)]`. The reason is the maximum number of characters we need to insert is equal to the size of the string minus 1. When we find LCS of s and reverse(s) we find out the maximum common characters between them which we can avoid inserting.
+  
+  LCS of s = "abcdef" with sr = "fedcba" is **1**. Size of s (6) - LCS(s, sr) (1) = 5 which is exactly the number of characters we need to insert.
   
   ### References
   
-  ><br/>
+  >https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/<br/>
   
 </details>
