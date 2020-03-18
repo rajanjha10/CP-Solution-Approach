@@ -40,10 +40,29 @@ xxxxxxlovely<br/>
   
   ######
   
-   
+  The problem is a combination of longest common subsequence and longest common substring problem. Make sure you know these two before reading further.
+  
+  The only difference between the standard problem and the modified version is that the number of common characters we take at a time has a lower bound, which is the value **k**. We will use a 2d array dp[][]. We must always take k or more common characters to add the subsequence we will be building via dp.
+  
+  So the relation `dp[i][j] = dp[i-1][j-1] + 1` if x\[i]==y\[j] is now invalid because this takes just 1 character into the subsequence. In place of this, we need to iterate backwards as long as we get common characters greater than **k** and build dp[][] accordingly. 
+  
+  Hence the relation comes to be:<br/>
+  `dp[i][j] = max(dp[i-1][j], dp[i][j-1], dp[i-x][j-x] + x)` **(x: k .... s1[x]!=s2[x])**
+  
+  We can preprocess the length of the common substring to answer upper bound of x.
+  
+  ###### Reducing Time complexity:
+  
+  The time complexity of above technique is `O(N^3)`. We can reduce the time complexity to `O(N^2)` by taking two different dp[][] tables. dp[][][0] and dp[][][1].
+  
+  dp[i][j][0] denotes the length of LCS which follows the constraint that each segment of LCS except the last one is of length>=k and the last segment of it can be of any length>=0 but it should end at index i,j of two string 's1' and 's2' respectively.
+
+  dp[i][j][1] denotes the length of LCS which strictly follows the constraint given by problem that each segment of it will be of length>=K
+  
+  The combination of two tables helps in generating lcs according to the constraints and get rid of any suffix characters that do not satisfy the constraints for each (i, j). 
   
   ### References
   
-  ><br/>
+  >https://discuss.codechef.com/t/help-with-problem-samer08d-dna-sequences/13802/2<br/>
   
 </details>
