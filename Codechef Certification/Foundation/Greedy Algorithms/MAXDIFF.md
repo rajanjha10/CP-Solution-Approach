@@ -44,7 +44,15 @@ For each test case, output the maximum possible difference between the weights c
   
   ######
   
-   
+  The two ways in which we can maximize the difference is:
+  1. Assign k smallest weights to son
+  2. Assign k greatest weights to father
+    
+  Ex: n=4, k=3 <br/>
+      w[] = {2, 3, 4, 5}<br/>
+      we assign k greatest weights `3, 4, 5` to father to get max `diff = 12 - 2 = 10` as opposed to assigning k smallest weights `2, 3, 4` to son to get `diff = 9 - 5 = 4`.
+      
+  We make sure that we include more and greater weights in father's set. Hence, when `k>n/2` it is optimal to assign **k** greatest weights to father else we assign **k** smallest weights to son to maximize the difference. 
   
   ### References
   

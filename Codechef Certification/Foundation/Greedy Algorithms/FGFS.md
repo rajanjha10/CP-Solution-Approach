@@ -50,7 +50,11 @@ If we serve the **1<sup>st</sup>**, **2<sup>nd</sup>** and **4<sup>th</sup>** cu
   
   ######
   
-   
+  We will seperate timings for each compartment to handle them separately and sort them according to their departure time. 
+  
+  We greedily select the customer which leaves first, so that we get the maximum remaining time to dine other customers. The customer's which interfere with a currently dining customers timing will be simply ignored.
+  
+  This will lead to the maximum number of customers that can dine at the restaurant.
   
   ### References
   

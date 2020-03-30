@@ -58,7 +58,12 @@ So the total sweetness is **16**, and it is the maximum total sweetness.
   
   ######
   
-   
+  We need to take three things into account:
+  - The first M songs should be of different bands. Otherwise we can swap some songs and the sweetness will increase.
+  - The lengths of first songs are multiplied by smaller numbers, hence it is advantageous to listen first M songs from the shortest to the longest.
+  - Also for the first M songs we should choose the shortest song from each band. Otherwise swapping some songs we could increase sweetness.
+  
+  Keeping the above things in account we simply store the shortest length songs of each band in an array and sort them. We iterate through the array and add their sweetness to our answer accordingly. For rest of the songs, we have already listened to all the bands and hence their lengths will be multiplied by a constant integer M and added to our answer.
   
   ### References
   

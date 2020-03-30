@@ -42,10 +42,8 @@ For each test case output a single line containing a single integer denoting the
   
   ######
   
-   
+  The MMDS is a shitty software and does nothing. We sort the hotness of men and women in the same order and form pairs with their corresponding ones.
   
-  ### References
-  
-  ><br/>
+  For all i, we get `ans += men[i]*women[i]` after sorting.
   
 </details>

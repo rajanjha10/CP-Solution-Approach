@@ -40,10 +40,18 @@ For each block in the input file, output the minimal number of rounds needed to 
   
   ######
   
-   
+  We take the sum of all the elements in the array and divide it with n to find the avg. If the sum is not divisible by n then the answer is **-1**.
+  
+  We create a difference array `diff[i] = a[i] - avg`. It tells us how much load do we need to export or import from or to the processor. We then create prefix sum array of difference array and the maximum absolute value in this array is the number of rounds required.
+  
+  This works because when we make a prefix sum array we include all the previous utilized rounds in processing of diff[i] and know how many rounds do we still need for balancing it by its absolute value. The maximum absolute value is the maximum number of rounds required by a processor to get balanced.
+  
+  ex: diff[]  = [ 2 ,-5, 7, -4]<br/>
+  prefixsum[] = [2, -3, 4, 0]<br/>
+  ans = 4
   
   ### References
   
-  ><br/>
+  >https://www.quora.com/What-is-the-approach-to-solve-SPOJ-com-Problem-BALIFE<br/>
   
 </details>

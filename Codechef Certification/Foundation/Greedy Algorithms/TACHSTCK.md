@@ -36,7 +36,7 @@ The 5 sticks have lengths 1, 3, 3, 9 and 4 respectively. The maximum allowed dif
   
   ######
   
-   
+  We sort the length of the sticks. We traverse the array from left to right. If we cannot pair a chopstick with it's adjacent chopstick then we can't pair it with any other chopstick. The reason is simple, Since the lengths are sorted if the difference between adjacent chopsticks is greater than **D** then surely the difference is greater for any other chopstick. 
   
   ### References
   

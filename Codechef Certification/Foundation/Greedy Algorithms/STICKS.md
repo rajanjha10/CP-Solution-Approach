@@ -43,7 +43,7 @@ For each test case, output a single line containing an integer representing the 
   
   ######
   
-   
+  We sort the array in decreasing order and greedily select two greatest values that exists in pairs to get the maximum area rectangle. If such two value's doesn't exists than the answer is -1.
   
   ### References
   

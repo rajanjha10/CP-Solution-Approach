@@ -59,8 +59,47 @@ The reason why **\-1 mod (10<sup>9</sup> + 7) = 1000000006** is that for positiv
   
   ######
   
-   
+  We will greedily sort the array in descending order based on absolute values.
   
+  Cases when the first **k** characters work after sorting:
+  - When all of them are positive
+  - When we have even negative numbers
+  - When we have a zero in first k characters indicating the array has only zero's left in the remaining array.
+  - When k==n
+  
+  Cases when the last **k** characters work after sorting:
+  - When all values are negative
+  - When k==n
+  
+  If we get a negative product from first k values then we can turn it into positive product by replacing a negative value inside k at index say **nk** with a positive value outside k at index say **pok** or by replacing a positive value inside k at index say **pk** with a negative value outside k at index say **nok**.
+  
+  To get the maximum product we choose largest existing **nk** and **pk** to replace with smallest existing **pok** and **nok** (index wise).
+  
+  If all the values pok, nok, nk and pk exists then we need to find out replacement of which will give maximum product.
+ 
+ Ex: n=6, k=3<br/>
+ sorted a[] = {-8, 7, 6, -5, 4, 3}
+ nk = 0, pk = 2, nok = 3, pok = 4<br/>
+ a[nk] * a[nok] (-8 * -5) > a[pk] * a[pok] (6 * 4)<br/>
+ Hence we replace a[pk] with a[nok] in the product of first k elements<br/>
+ The maximum product is for sequence {-8, 7, -5} i.e 280.
+ 
+ The algorithm works as follows;
+ ```cpp
+ - if(first k characters work)
+       return first k characters product
+ - if((pk==-1 || nok==-1) && (nk==-1 || pok==-1)) //all values are negative or k==n
+       return last k characters product
+ - if(pk==-1 || nok==-1) // no replacement for positive value inside k
+       replace a[nk] with a[pok] in product
+ - else if(nk==-1 || pok==-1) // no replacement for negative value inside k
+       replace a[pk] with a[nok] in product
+ - else if(a[nk]*a[nok] > a[pk]*a[pok]) // check which replacement gives better product
+       replace a[pk] with a[nok] in product
+ - else
+       replace a[nk] with a[pok] in product 
+ ```
+ 
   ### References
   
   >https://discuss.codechef.com/questions/82151/mmprod-editorial<br/>

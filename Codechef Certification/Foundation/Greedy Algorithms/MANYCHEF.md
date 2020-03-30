@@ -52,7 +52,25 @@ However, lexicographically smallest one is the first one.
   
   ######
   
-   
+  The two important things to note is:
+  - Since all "CHEF" characters are distinct, all occurrences of "CHEF"s in S must be non-overlapping. Hence, each time we can replace the current positions of string with “CHEF”, it is optimal to replace with it.
+  - To get the lexicographically smallest answer we iterate backwards inserting chef wherever possible and then replace remaining "?" with "A" so that "A"'s appear at the start of the string.
+  
+  We can simply bruteforce the string from backwards and greedily change every possible replacement to "CHEF". Fill the remaining "?" with "A".
+  
+  The pseudo code is:
+  ```cpp
+    for(i = N-4; i ≥ 0; i--){
+        if can_replace(S[i....i+3], "CHEF")
+            replace(S[i..i+3], "CHEF")
+    }
+    
+    for(i = 0; i < N; i++){
+        if (S[i] == '?')
+            S[i] = 'A'
+    }
+    
+  ``` 
   
   ### References
   

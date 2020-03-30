@@ -51,8 +51,24 @@ For each test case output the minimum number of times Haku must clean the table(
   
   ######
   
-   
+  When all the tables are occupied the strategy is to pick a customer who will order in future in farthest of time. This will ensure that we have to clean minimum number of tables.
   
+  We use a 2D array of order[m][401] which stores at every index, the closest appearance of every customer order in the remaining list of orders. Using that we can find out the customer who will order in the farthest of time and is currently seated at a table.
+  
+  Ex: n = 2, m = 9, c[] = 1 2 3 1 2 3 1 2 4 <br/>
+  The arrangement is as follows:<br/>
+  1 -1 <br/>
+  1 2 <br/>
+  1 3 <br/>
+  1 3 <br/>
+  2 3 <br/>
+  2 3 <br/>
+  2 1 <br/>
+  2 1 <br/>
+  4 1 <br/>
+
+  ans = 6
+
   ### References
   
   >https://discuss.codechef.com/questions/49342/cletab-editorial<br/>

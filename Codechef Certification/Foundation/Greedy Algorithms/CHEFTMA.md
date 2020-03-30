@@ -65,7 +65,13 @@ So he will have **3** uncompleted tasks.<br/>
   
   ######
   
-   
+  Even though the problem claims that white buttons and black buttons do different task they ultimately give the same result which is to decrease the number of uncompleted tasks.
+  
+  We create a difference array of `a[i] - b[i]` to get the remaining tasks. We sort the diff array in decreasing order. We combine the black and white buttons in buttons[] array and sort them in decreasing order as well.
+  
+  We iterate through the array and check for a buttons[j] (j<k+m) which can be used with current diff[i] (i<n). If button[j] is greater than diff[i] then we cannot use it anywhere and hence we discard it or else we add the `diff[i] - buttons[j]` in our result and increment i and j.
+  
+  We add the remaining values in diff[i] to result if j>=k+m and i<n.
   
   ### References
   

@@ -47,7 +47,15 @@ Bob will take the first three orders (or the first two) and Andy will take the r
   
   ######
   
+  We will use the strategy of greedily selecting the tip of andy or bob which causes the maximum loss so that we can reduce the overall loss encountered. There is no point of delivering an order which is of high loss after an order which incurs less loss.
   
+  We will use a difference array d[i] = |b[i] - a[i]| and sort it in decreasing order.<br/>
+  We can have following two cases:
+  - If A[i] > B[i], then we will try to assign it to Andy if possible (If after the assignment, limit of orders is not crossed).
+  Otherwise we will assign it to Bob.
+  - If B[i] > A[i], then we will try to assign it to Bob if possible. Otherwise we will assign it to Andy.
+  
+  See solution approach [here](http://rajanjha10.github.io/codehub/code.html?1052) for dynamic programming solution. 
   
   ### References
   

@@ -65,7 +65,13 @@ For each test case, output a single line containing the minimum sum of the numbe
   
   ######
   
-   
+  The maximum number of stones we can remove from both the piles is limited by **min(n1, n2)**. If m is greater than min(n1, n2) then we can make min(n1, n2) = 0 by removing all the stones and the answer would be `diff = max(n1, n2) - min(n1, n2)`.
+  
+  If m is less than min(n1, n2) then the maximum number of stones we can remove is sum of all the numbers upto m as we can remove only unique number of stones each time. The sum of all the numbers upto m is given by `som = (m * (m+1))/2`.
+  
+  If som is greater than min(n1, n2) then again we can always make min(n1, n2) = 0 by removing `som - min(n1, n2)` stones from both the piles and hence the answer would be diff.
+  
+  If som is less than min(n1, n2) then `min(n1, n2) - som` stones wil be left extra in each of the piles other than diff. Hence the answer would be `2*(min(n1, n2) - som) + diff`.
   
   ### References
   

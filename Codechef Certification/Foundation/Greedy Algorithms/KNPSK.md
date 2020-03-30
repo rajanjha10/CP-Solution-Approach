@@ -53,7 +53,22 @@ For **C** = 9, it's optimal to choose {1, 2, 3, 4, 5} items.<br/>
   
   ######
   
-   
+  The problem can be solved easily by separately handling two things:
+  - weight = 1 and weight = 2
+  - Even and odd size bags
+  
+  We separate the cost having same weights and sort them in decreasing order. We maintaining different answers for even say **ansEven** and odd say **andOdd**. We maintain count variables (cnto1, cnto2) for odd bags and (cnte1, cnte2) for even bags with weight 1 and 2 to keep track of the items which are already used. 
+  
+  ansOdd and ansEven will store answer for i-2 when i is odd and even respectively for all `i<n`.
+  
+  For bag of size 1 we have only one choice of selecting greatest unused cost item of weight 1 if exists.
+  
+  For odd size bags greater than 1 and all even size bags, we have three choices:
+  - select two greatest unused cost items of weight 1 if exists
+  - select single greatest unused cost item of weight 1 if exists (we are concerned with maximizing cost and not filling the entire capacity of a knapsack)
+  - select a greatest unused cost item of weight 2 if exists
+  
+  Once we find out the one which gives the maximum out of these three options we increment count variables accordingly and store the answer in ans(Odd, Even).
   
   ### References
   

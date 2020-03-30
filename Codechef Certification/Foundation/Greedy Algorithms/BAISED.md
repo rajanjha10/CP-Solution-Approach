@@ -58,10 +58,19 @@ In the second test case all ranklists are equally good.
   
   ######
   
-   
+  An important thing to note is that there can't be empty spaces in a ranklist. So if we have two teams with desired positions 1 and 10, we have to rank them at 1 and 2. In essence we will rank the teams from 1 to n.
+  
+  We simply sort the array and find the teams who are not at their desired position and add their badness to the answer.
+  This works because all the positions need to be filled and sorting ensures that we minimize the badness of individual teams and ultimately this results in the best ranklist with minimum badness.
+  
+  Consider ex: n=5<br/>
+  a[] = {2, 4, 5, 1}<br/>
+  The best ranklist is {1, 2, 4, 5} at ranks {1, 2, 3, 4} with a badness of 2.
+  
+  The approach of placing teams at their desired ranks and then filling in blanks from remaining teams fails in the above test case and leaves a blank at position 3 in the ranklist.
   
   ### References
   
-  ><br/>
+  >https://ipsc.ksp.sk/2006/real/solutions/b.html<br/>
   
 </details>

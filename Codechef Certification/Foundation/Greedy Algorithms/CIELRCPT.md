@@ -66,7 +66,10 @@ In the last sample, the optimal way is 2048+2048=4096 (2 menus). Note that there
   
   ######
   
-   
+  We can follow the greedy approach to assign the maximum value dish not greater than **p** at every step and count the number of menu's required. Since, we are assigning the maximum value dish we will get the minimum number of menu's required. 
+  
+  The price of menu's are all power's of 2. Hence if we count the no. of set bit's in binary representation of **p** then we will get the minimum number of menu's required.
+  The highest menu price is 2048. Therefore, we bring **p** under 2048 by subtracting it from 2048 and incrementing count. We then calculate the number of set bit's in **p**.
   
   ### References
   

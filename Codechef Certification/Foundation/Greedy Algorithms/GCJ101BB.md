@@ -47,10 +47,18 @@ Case #3: IMPOSSIBLE<br/>
   
   ######
   
-   
+  End of the road(barn) is **B** and the inputs **X** are given in increasing order. We start by finding out the distance that a chick still has to cover to reach the barn i.e `rem[i] = B - x[i]`. We then divide the remaining distance with speed for all i to get the time which we need to cover the distance.
   
-  ### References
+  Once we have the time needed by each chick we check if we have atleast **K** chicks requiring not more than **T** time. If no then the answer is **IMPOSSIBLE**.
   
-  ><br/>
+  We start from the extreme right cause that's towards the end of the road and iterate through the array. We need to place the chicks with **t<=T** in front of the chicks with **t>T**. Hence we count the number of chicks having **t>T** and when we find a chick having **t<=T** then we need to do count number of swaps so that the later chick is ahead of the former.
   
+  Ex: N = 5, K = 3, B = 10, T = 5<br/>
+      x[] = {0, 2, 3, 5, 7}<br/>
+      v[] = {2, 1, 1, 1, 4}<br/>
+      rem[] = {10, 8, 7, 5, 3}<br/>
+      time[] = {5, 8, 7, 5, 1}<br/>
+      After swapping: time[] = {8, 7, 5, 5, 1}<br/>
+      ans = swap = 2
+        
 </details>

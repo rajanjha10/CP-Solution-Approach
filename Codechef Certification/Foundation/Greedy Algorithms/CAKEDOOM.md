@@ -83,7 +83,11 @@ NO<br/>
   
   ######
   
-   
+  We will greedily select the minimum value of color for every i which is not equal to it's adjacent colors if possible. Greedily selecting the minimum value at each stage gives the _lexicographically smallest_ arrangement.
+  
+  If we cannot select a value of k within the constraints or the string is invalid then the answer is **NO**.
+  
+  A tricky testcase include: k=2, s = "??1?". On putting **0** as the first color we can't get a string which satisfies the constraint and the answer becomes "NO" whereas a valid arrangement exists by putting **1** as the first color s = "1010". So, we will check the first element for all possible values of k starting with the lowest until we get a valid arrangement.
   
   ### References
   

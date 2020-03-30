@@ -36,10 +36,12 @@ No two amplifier > 1 shall be loaded with the same integer.<br/>
   
   ######
   
-   
+  If we load the amplifiers in decreasing order of values then we will get the maximum result as we are taking the maximum possible power.
   
-  ### References
+  The special cases are:
+  - When there are one or more one's in the input. Since 1<sup>anything</sup> = 1. Hence, it is ideal to place it at the start.
+  - When we have only 2 and 3 along with zero or more 1. 2<sup>3</sup> is less than 3<sup>2</sup>. Hence, it is better to load the amplifiers first with 2 and then with 3.
   
-  ><br/>
+  We handle these two special cases and get our final answer.
   
 </details>

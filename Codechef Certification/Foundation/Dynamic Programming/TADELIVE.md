@@ -55,6 +55,8 @@ Bob will take the first three orders (or the first two) and Andy will take the r
   ###### Bottom Up
   We use the similar approach and iterate for all possible orders upto x for andy at every i where i = 0...n. If we can include jth order at index i for andy than andy = `dp[i-1][j-1] + a[i]` which is what is the best we can do at the previous index with one order less + tip of order at current index for andy. If we can include jth order at index i for bob than bob = `dp[i-1][j] + b[i]` which is what is the best we can do at the previous index without any change in orders of andy + tip of order at current index for bob. dp[i][j] is the max of andy and bob.<br/>
   The best answer will be stored in dp[n][i] (1 based indexing) where i = 0....x
+
+  See solution approach [here](http://rajanjha10.github.io/codehub/code.html?1034) for Greedy Solution which works for large values of n.
   
   ### References
   
