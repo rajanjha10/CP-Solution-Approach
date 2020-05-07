@@ -40,6 +40,10 @@ No
 <details>
   <summary>Solution Approach</summary>
   
+  ######
+  We just subtract the A<sub>i</sub> candies from c for all i. 
+  If at last c<0 then the answer is No else the answer is Yes.
+  
   ### References
   
   ><https://discuss.codechef.com/t/lecandy-editorial/275><br/>
