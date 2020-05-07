@@ -12,10 +12,8 @@
 
 ### Example
 >Input:<br/>
-<br/>
 
 >Output:<br/>
-<br/>
 
 ### Explanation
 
