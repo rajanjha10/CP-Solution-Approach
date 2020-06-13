@@ -1,0 +1,3 @@
+Since k3 is less than equal to 2012, we just generate all the contiguous sub-array sums and then insert them in our multiset until it's size is atmost 2012.
+
+In each iteration we check if multiset size is less than 2012. If true then we insert the contiguous sub-array sum or else we compare it with the first element in the multiset and remove the first element if it is smaller than the sum as we want the highest k1, k2, k3 elements.

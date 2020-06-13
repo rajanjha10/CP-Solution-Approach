@@ -1,0 +1,1 @@
+We simply use disjoint set union data structure and store the connections between departments and then answer the queries. If two departments are in the same connected component then the answer is yes or else the answer is no.

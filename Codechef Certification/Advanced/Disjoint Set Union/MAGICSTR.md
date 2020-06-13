@@ -1,0 +1,5 @@
+We need to make sure that every string between given queries l and r forms a palindrome. We know a palindrome has same characters at position (0, n-1), (1, n-2),....
+
+We use a disjoint set union data structure and perform union operations on all the characters that need to be the same for every query. To speed this up we can use two arrays cntEven[] and cntOdd[] which stores the maximum size of the string that needs to be a palindrome from the current index for odd and even lengths respectively. Then we can directly perform the union operations on these aggregated queries.
+
+We then get a forest of connected components. All the nodes inside the same component should have the same character and there are 26 possibilities [a-z] for each connected component. Hence, the answer will be 26<sup>cnt</sup> where cnt = no. of different connected components. 

@@ -1,0 +1,1 @@
+We store the connection between friends in a disjoint set union data structure and then find out the no. of connected components. That is the number of fire exits we have to build and from each connected component we can choose anyone to be the mock drill captain so we have `no. of ways = product of size of each connected component`.
